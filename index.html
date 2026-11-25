@@ -1,0 +1,2027 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+
+<meta name="viewport"
+      content="width=device-width, initial-scale=1.0">
+
+<title>Gaming Tournament Portal</title>
+
+<style>
+
+/* ================= GENERAL ================= */
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background: #0b0b0b;
+    color: white;
+}
+
+
+/* ================= LOGIN START PAGE ================= */
+
+#loginPage {
+
+    min-height: 100vh;
+
+    display: flex;
+
+    justify-content: center;
+
+    align-items: center;
+
+    text-align: center;
+
+    background:
+        linear-gradient(
+            rgba(0,0,0,0.85),
+            rgba(30,0,50,0.95)
+        );
+
+}
+
+.login-box {
+
+    width: 90%;
+
+    max-width: 450px;
+
+    padding: 40px;
+
+    background: #151515;
+
+    border-radius: 20px;
+
+    box-shadow:
+        0 0 20px #8a2be2;
+
+}
+
+.login-box h1 {
+
+    color: #b84dff;
+
+    font-size: 35px;
+
+    margin-bottom: 10px;
+
+}
+
+.login-box p {
+
+    color: #aaa;
+
+    margin-bottom: 25px;
+
+}
+
+.login-box label {
+
+    display: block;
+
+    text-align: left;
+
+    margin-top: 15px;
+
+    margin-bottom: 7px;
+
+}
+
+.login-box input {
+
+    width: 100%;
+
+    padding: 13px;
+
+    border: none;
+
+    border-radius: 8px;
+
+    background: #222;
+
+    color: white;
+
+    margin-bottom: 10px;
+
+}
+
+.login-box input:focus {
+
+    outline: 2px solid #8a2be2;
+
+}
+
+.login-box button {
+
+    width: 100%;
+
+    margin-top: 15px;
+
+}
+
+#loginMessage {
+
+    margin-top: 20px;
+
+    color: #b84dff;
+
+}
+
+
+/* ================= MAIN WEBSITE ================= */
+
+#mainWebsite {
+
+    display: none;
+
+}
+
+
+/* ================= NAVIGATION ================= */
+
+header {
+
+    background: #111;
+
+    padding: 15px;
+
+    position: sticky;
+
+    top: 0;
+
+    z-index: 1000;
+
+    box-shadow: 0 0 15px #8a2be2;
+
+}
+
+.logo {
+
+    text-align: center;
+
+    font-size: 28px;
+
+    font-weight: bold;
+
+    color: #b84dff;
+
+    margin-bottom: 15px;
+
+}
+
+nav {
+
+    display: flex;
+
+    justify-content: center;
+
+    align-items: center;
+
+    gap: 8px;
+
+    flex-wrap: wrap;
+
+}
+
+nav a {
+
+    color: white;
+
+    text-decoration: none;
+
+    padding: 10px 12px;
+
+    border-radius: 8px;
+
+    transition: 0.3s;
+
+}
+
+nav a:hover {
+
+    background: #8a2be2;
+
+}
+
+
+/* ================= HOME ================= */
+
+.hero {
+
+    min-height: 500px;
+
+    display: flex;
+
+    justify-content: center;
+
+    align-items: center;
+
+    text-align: center;
+
+    padding: 30px;
+
+    background: linear-gradient(
+        rgba(0,0,0,0.7),
+        rgba(20,0,40,0.9)
+    );
+
+}
+
+.hero-content h1 {
+
+    font-size: 50px;
+
+    color: #b84dff;
+
+    margin-bottom: 20px;
+
+}
+
+.hero-content p {
+
+    font-size: 20px;
+
+    margin-bottom: 30px;
+
+}
+
+
+/* ================= BUTTON ================= */
+
+button {
+
+    background: #8a2be2;
+
+    color: white;
+
+    border: none;
+
+    padding: 12px 22px;
+
+    border-radius: 8px;
+
+    cursor: pointer;
+
+    font-size: 16px;
+
+    transition: 0.3s;
+
+}
+
+button:hover {
+
+    background: #b84dff;
+
+    transform: scale(1.05);
+
+}
+
+
+/* ================= SECTIONS ================= */
+
+.section {
+
+    padding: 70px 30px;
+
+    text-align: center;
+
+    min-height: 300px;
+
+}
+
+.section h2 {
+
+    color: #b84dff;
+
+    font-size: 32px;
+
+    margin-bottom: 30px;
+
+}
+
+
+/* ================= TOURNAMENTS ================= */
+
+.tournament-container {
+
+    display: flex;
+
+    justify-content: center;
+
+    gap: 25px;
+
+    flex-wrap: wrap;
+
+}
+
+.tournament-card {
+
+    width: 280px;
+
+    padding: 25px;
+
+    background: #151515;
+
+    border-radius: 15px;
+
+    box-shadow:
+        0 0 15px rgba(128,0,255,0.5);
+
+}
+
+.tournament-card h3 {
+
+    color: #b84dff;
+
+    margin-bottom: 15px;
+
+}
+
+.tournament-card p {
+
+    margin: 10px 0;
+
+}
+
+
+/* ================= FORMS ================= */
+
+.registration-form,
+.team-form {
+
+    max-width: 550px;
+
+    margin: auto;
+
+    padding: 30px;
+
+    background: #151515;
+
+    border-radius: 15px;
+
+    box-shadow:
+        0 0 15px rgba(128,0,255,0.5);
+
+    text-align: left;
+
+}
+
+.registration-form label,
+.team-form label,
+.comment-box label {
+
+    display: block;
+
+    margin-top: 12px;
+
+    margin-bottom: 6px;
+
+}
+
+.registration-form input,
+.registration-form select,
+.team-form input,
+.team-form select,
+.comment-box input,
+.comment-box textarea {
+
+    width: 100%;
+
+    padding: 12px;
+
+    border: none;
+
+    border-radius: 8px;
+
+    background: #222;
+
+    color: white;
+
+    margin-bottom: 12px;
+
+}
+
+.registration-form button,
+.team-form button {
+
+    margin-top: 10px;
+
+}
+
+#registrationMessage,
+#teamMessage {
+
+    margin-top: 20px;
+
+    color: #b84dff;
+
+}
+
+
+/* ================= TABLE ================= */
+
+table {
+
+    width: 90%;
+
+    margin: auto;
+
+    border-collapse: collapse;
+
+    background: #151515;
+
+}
+
+th,
+td {
+
+    padding: 15px;
+
+    border: 1px solid #333;
+
+    text-align: center;
+
+}
+
+th {
+
+    background: #8a2be2;
+
+}
+
+tr:hover {
+
+    background: #222;
+
+}
+
+
+/* ================= STATUS ================= */
+
+.live-status {
+
+    color: red;
+
+    font-weight: bold;
+
+}
+
+.upcoming-status {
+
+    color: yellow;
+
+    font-weight: bold;
+
+}
+
+.completed-status {
+
+    color: lightgreen;
+
+    font-weight: bold;
+
+}
+
+
+/* ================= LEADERBOARD ================= */
+
+#leaderboardTable {
+
+    margin-top: 20px;
+
+}
+
+
+/* ================= LIVE ================= */
+
+.live-card {
+
+    max-width: 600px;
+
+    margin: auto;
+
+    padding: 30px;
+
+    background: #151515;
+
+    border-radius: 15px;
+
+    box-shadow:
+        0 0 15px rgba(128,0,255,0.5);
+
+}
+
+.live-card h3 {
+
+    color: #b84dff;
+
+    font-size: 25px;
+
+    margin-bottom: 20px;
+
+}
+
+.live-card p {
+
+    margin: 12px;
+
+}
+
+.score {
+
+    display: flex;
+
+    justify-content: space-around;
+
+    margin: 25px 0;
+
+    padding: 20px;
+
+    background: #222;
+
+    border-radius: 10px;
+
+}
+
+.score span {
+
+    font-size: 18px;
+
+}
+
+.score b {
+
+    color: #b84dff;
+
+    font-size: 25px;
+
+}
+
+
+/* ================= PRIZES ================= */
+
+.prize-container {
+
+    display: flex;
+
+    justify-content: center;
+
+    gap: 25px;
+
+    flex-wrap: wrap;
+
+}
+
+.prize-card {
+
+    width: 250px;
+
+    padding: 25px;
+
+    background: #151515;
+
+    border-radius: 15px;
+
+    text-align: center;
+
+    box-shadow:
+        0 0 15px rgba(128,0,255,0.5);
+
+}
+
+.prize-card h3 {
+
+    color: #b84dff;
+
+    font-size: 22px;
+
+    margin-bottom: 15px;
+
+}
+
+.prize-card h2 {
+
+    font-size: 28px;
+
+    margin: 15px;
+
+}
+
+.prize-card p {
+
+    color: #ccc;
+
+    margin: 10px;
+
+}
+
+
+/* ================= SPECTATOR ================= */
+
+.comment-box {
+
+    max-width: 600px;
+
+    margin: auto;
+
+    padding: 25px;
+
+    background: #151515;
+
+    border-radius: 15px;
+
+    box-shadow:
+        0 0 15px rgba(128,0,255,0.5);
+
+    text-align: left;
+
+}
+
+.comment-box textarea {
+
+    height: 100px;
+
+    resize: vertical;
+
+}
+
+#commentMessage {
+
+    margin-top: 15px;
+
+    color: #b84dff;
+
+}
+
+#commentsList {
+
+    max-width: 600px;
+
+    margin: 25px auto;
+
+}
+
+.comment {
+
+    background: #151515;
+
+    padding: 18px;
+
+    margin-bottom: 15px;
+
+    border-radius: 10px;
+
+    border-left: 4px solid #8a2be2;
+
+    text-align: left;
+
+}
+
+.comment h4 {
+
+    color: #b84dff;
+
+    margin-bottom: 8px;
+
+}
+
+
+/* ================= FOOTER ================= */
+
+footer {
+
+    background: #111;
+
+    padding: 25px;
+
+    text-align: center;
+
+    color: #aaa;
+
+}
+
+
+/* ================= MOBILE ================= */
+
+@media screen and (max-width: 700px) {
+
+    .hero-content h1 {
+
+        font-size: 35px;
+
+    }
+
+    nav {
+
+        flex-direction: column;
+
+    }
+
+    nav a {
+
+        width: 100%;
+
+        text-align: center;
+
+    }
+
+    table {
+
+        width: 100%;
+
+        font-size: 13px;
+
+    }
+
+    th,
+    td {
+
+        padding: 8px;
+
+    }
+
+    .score {
+
+        flex-direction: column;
+
+        gap: 15px;
+
+    }
+
+}
+
+</style>
+
+</head>
+
+
+<body>
+
+
+<!-- ================================================= -->
+<!--              FIRST PAGE : LOGIN                  -->
+<!-- ================================================= -->
+
+<section id="loginPage">
+
+    <div class="login-box">
+
+        <h1>🎮 GameArena</h1>
+
+        <p>Gaming Tournament Portal</p>
+
+        <h2>🔐 Player Login</h2>
+
+
+        <label>Username</label>
+
+        <input type="text"
+               id="loginUsername"
+               placeholder="Enter username">
+
+
+        <label>Password</label>
+
+        <input type="password"
+               id="loginPassword"
+               placeholder="Enter password">
+
+
+                <label>Confirm Password</label>
+
+        <input type="password"
+               id="loginConfirmPassword"
+               placeholder="Confirm password">
+
+
+<button type="button"
+                onclick="loginUser()">
+
+            🔐 Login
+
+        </button>
+
+
+        <p id="loginMessage"></p>
+
+    </div>
+
+</section>
+
+
+
+<!-- ================================================= -->
+<!--              MAIN WEBSITE                        -->
+<!-- ================================================= -->
+
+<div id="mainWebsite">
+
+
+<!-- ================= NAVIGATION ================= -->
+
+<header>
+
+    <div class="logo">
+
+        🎮 GameArena
+
+    </div>
+
+    <nav>
+
+        <a href="#home">🏠 Home</a>
+
+        <a href="#tournaments">🎮 Tournaments</a>
+
+        <a href="#register">📝 Register</a>
+
+        <a href="#teams">👥 Teams</a>
+
+        <a href="#schedule">📅 Schedule</a>
+
+        <a href="#leaderboard">🥇 Leaderboard</a>
+
+        <a href="#live">🔴 Live</a>
+
+        <a href="#prizes">🏆 Prizes</a>
+
+        <a href="#spectators">💬 Spectators</a>
+
+        <a href="#logout"
+           onclick="logoutUser()">
+
+            🚪 Logout
+
+        </a>
+
+    </nav>
+
+</header>
+
+
+<!-- ================= HOME ================= -->
+
+<section id="home" class="hero">
+
+    <div class="hero-content">
+
+        <h1>🎮 Gaming Tournament Portal</h1>
+
+        <h2>Compete. Win. Become a Champion. 🏆</h2>
+
+        <p>
+            Join exciting gaming tournaments, create your team,
+            compete with players and climb the leaderboard.
+        </p>
+
+
+        <!-- QUICK ACTION BUTTONS -->
+
+        <div class="hero-buttons">
+
+            <button onclick="location.href='#tournaments'">
+                🏆 View Tournaments
+            </button>
+
+            <button
+                class="secondary-btn"
+                onclick="location.href='#register'">
+                📝 Register Now
+            </button>
+
+        </div>
+
+
+        <!-- DASHBOARD STATISTICS -->
+
+        <div class="hero-stats">
+
+            <div class="hero-stat">
+
+                <span>🏆</span>
+
+                <h3>5</h3>
+
+                <p>Games</p>
+
+            </div>
+
+
+            <div class="hero-stat">
+
+                <span>👥</span>
+
+                <h3>250+</h3>
+
+                <p>Players</p>
+
+            </div>
+
+
+            <div class="hero-stat">
+
+                <span>🔴</span>
+
+                <h3>4</h3>
+
+                <p>Live Matches</p>
+
+            </div>
+
+
+            <div class="hero-stat">
+
+                <span>💰</span>
+
+                <h3>₹40K+</h3>
+
+                <p>Prize Pool</p>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section><!-- ================= TOURNAMENTS ================= -->
+<section id="tournaments" class="section">
+
+    <h2>🏆 Available Tournaments</h2>
+<div class="tournament-filter">
+
+    <input
+        type="text"
+        id="tournamentSearch"
+        placeholder="🔍 Search tournament..."
+        onkeyup="filterTournaments()"
+    >
+
+    <select
+        id="gameFilter"
+        onchange="filterTournaments()"
+    >
+        <option value="all">🎮 All Games</option>
+        <option value="BGMI">🎯 BGMI</option>
+        <option value="Free Fire">🔥 Free Fire</option>
+        <option value="Valorant">⚡ Valorant</option>
+        <option value="Call of Duty">💀 Call of Duty</option>
+        <option value="Minecraft">⛏️ Minecraft</option>
+    </select>
+
+    <button type="button" onclick="resetTournamentFilter()">
+        🔄 Reset
+    </button>
+
+</div>
+
+    <div class="tournament-container">
+
+        <!-- BGMI -->
+        <div class="tournament-card">
+
+            <div class="game-icon">🎯</div>
+
+            <h3>BGMI Championship</h3>
+
+            <p>🎮 Game: BGMI</p>
+            <p>👥 Players: 100</p>
+            <p>💰 Entry Fee: ₹100</p>
+            <p>🏆 Prize Pool: ₹10,000</p>
+            <p>📅 Type: Online</p>
+
+            <button onclick="registerTournament('BGMI Championship')">
+                Register Now
+            </button>
+
+        </div>
+
+
+        <!-- FREE FIRE -->
+        <div class="tournament-card">
+
+            <div class="game-icon">🔥</div>
+
+            <h3>Free Fire Battle</h3>
+
+            <p>🎮 Game: Free Fire</p>
+            <p>👥 Players: 50</p>
+            <p>💰 Entry Fee: ₹50</p>
+            <p>🏆 Prize Pool: ₹5,000</p>
+            <p>📅 Type: Online</p>
+
+            <button onclick="registerTournament('Free Fire Battle')">
+                Register Now
+            </button>
+
+        </div>
+
+
+        <!-- VALORANT -->
+        <div class="tournament-card">
+
+            <div class="game-icon">⚡</div>
+
+            <h3>Valorant Masters</h3>
+
+            <p>🎮 Game: Valorant</p>
+            <p>👥 Teams: 16</p>
+            <p>💰 Entry Fee: ₹200</p>
+            <p>🏆 Prize Pool: ₹20,000</p>
+            <p>📅 Type: Online</p>
+
+            <button onclick="registerTournament('Valorant Masters')">
+                Register Now
+            </button>
+
+        </div>
+
+
+        <!-- CALL OF DUTY -->
+        <div class="tournament-card">
+
+            <div class="game-icon">💀</div>
+
+            <h3>Call of Duty Cup</h3>
+
+            <p>🎮 Game: Call of Duty</p>
+            <p>👥 Teams: 32</p>
+            <p>💰 Entry Fee: ₹150</p>
+            <p>🏆 Prize Pool: ₹15,000</p>
+            <p>📅 Type: Online</p>
+
+            <button onclick="registerTournament('Call of Duty Cup')">
+                Register Now
+            </button>
+
+        </div>
+
+<!-- MINECRAFT -->
+<div class="tournament-card">
+
+    <div class="game-icon">⛏️</div>
+
+    <h3>Minecraft Battle</h3>
+
+    <p>🎮 Game: Minecraft</p>
+    <p>👥 Players: 40</p>
+    <p>💰 Entry Fee: ₹100</p>
+    <p>🏆 Prize Pool: ₹10,000</p>
+    <p>📅 Type: Online</p>
+
+    <button onclick="registerTournament('Minecraft Battle')">
+        Register Now
+    </button>
+
+</div>
+
+    </div>
+
+</section>
+<!-- ================= REGISTRATION ================= -->
+<section id="register" class="section">
+
+    <h2>📝 Player Registration</h2>
+
+    <div class="registration-form">
+
+        <label>Player Name:</label>
+        <input type="text" id="playerName" placeholder="Enter player name">
+
+        <label>Email:</label>
+        <input type="email" id="playerEmail" placeholder="Enter email">
+
+        <label>Game:</label>
+        <select id="playerGame">
+            <option value="">Select Game</option>
+            <option value="BGMI">🎯 BGMI</option>
+            <option value="Free Fire">🔥 Free Fire</option>
+            <option value="Valorant">⚡ Valorant</option>
+            <option value="Call of Duty">💀 Call of Duty</option>
+            <option value="Minecraft">⛏️ Minecraft</option>
+        </select>
+
+        <label>Player ID:</label>
+        <input type="text" id="playerId" placeholder="Enter player ID">
+
+        <label>Phone:</label>
+        <input type="tel" id="playerPhone" placeholder="Enter phone number">
+
+        <button type="button" onclick="submitRegistration()">
+            Register Player
+        </button>
+
+    </div>
+
+    <div id="registrationMessage"></div>
+
+</section>
+
+<section id="dashboard" class="section">
+
+    <h2>👤 My Player Dashboard</h2>
+
+    <div class="dashboard-container">
+
+        <div class="dashboard-card">
+            <span>👤</span>
+            <h3>Player</h3>
+            <p id="dashboardPlayer">Not Registered</p>
+        </div>
+
+        <div class="dashboard-card">
+            <span>🎮</span>
+            <h3>Game</h3>
+            <p id="dashboardGame">Not Selected</p>
+        </div>
+
+        <div class="dashboard-card">
+            <span>👥</span>
+            <h3>Team</h3>
+            <p id="dashboardTeam">No Team</p>
+        </div>
+
+        <div class="dashboard-card">
+            <span>📅</span>
+            <h3>Next Match</h3>
+            <p id="dashboardMatch">No Match</p>
+        </div>
+
+        <div class="dashboard-card">
+            <span>🏆</span>
+            <h3>Rank</h3>
+            <p id="dashboardRank">--</p>
+        </div>
+
+        <div class="dashboard-card">
+            <span>⭐</span>
+            <h3>Points</h3>
+            <p id="dashboardPoints">0</p>
+        </div>
+
+    </div>
+
+</section>
+<!-- ================= TEAMS ================= -->
+<section id="teams" class="section">
+
+    <h2>👥 Create Your Team</h2>
+
+    <div class="team-form">
+
+        <label>Team Name:</label>
+        <input type="text" id="teamName" placeholder="Enter team name">
+
+        <label>Captain:</label>
+        <input type="text" id="captainName" placeholder="Captain name">
+
+        <label>Game:</label>
+        <select id="teamGame">
+            <option value="">Select Game</option>
+            <option value="BGMI">🎯 BGMI</option>
+            <option value="Free Fire">🔥 Free Fire</option>
+            <option value="Valorant">⚡ Valorant</option>
+            <option value="Call of Duty">💀 Call of Duty</option>
+            <option value="Minecraft">⛏️ Minecraft</option>
+        </select>
+
+        <label>Player 2:</label>
+        <input type="text" id="player2" placeholder="Player 2">
+
+        <label>Player 3:</label>
+        <input type="text" id="player3" placeholder="Player 3">
+
+        <label>Player 4:</label>
+        <input type="text" id="player4" placeholder="Player 4">
+
+        <button type="button" onclick="submitTeam()">
+            ➕ Create Team
+        </button>
+
+    </div>
+
+    <div id="teamMessage"></div>
+
+</section>
+<!-- ================= SCHEDULE ================= -->
+
+<section id="schedule" class="section">
+
+    <h2>📅 Match Schedule</h2>
+
+    <table>
+
+        <tr>
+            <th>Match</th>
+            <th>Game</th>
+            <th>Teams</th>
+            <th>Date & Time</th>
+            <th>Status</th>
+            <th>Action</th>
+        </tr>
+
+        <tr>
+            <td>Match 01</td>
+            <td>🎯 BGMI</td>
+            <td>Shadow Warriors vs Titans</td>
+            <td>12 Sep 2026 - 10:00 AM</td>
+            <td class="live-status">🔴 LIVE</td>
+            <td>
+                <button onclick="viewMatch('Match 01')">
+                    👁️ View
+                </button>
+            </td>
+        </tr>
+
+        <tr>
+            <td>Match 02</td>
+            <td>🔥 Free Fire</td>
+            <td>Team Alpha vs Team Storm</td>
+            <td>12 Sep 2026 - 12:00 PM</td>
+            <td class="upcoming-status">🟠 UPCOMING</td>
+            <td>
+                <button onclick="viewMatch('Match 02')">
+                    👁️ View
+                </button>
+            </td>
+        </tr>
+
+        <tr>
+            <td>Match 03</td>
+            <td>⚡ Valorant</td>
+            <td>Cyber Kings vs Phoenix</td>
+            <td>12 Sep 2026 - 03:00 PM</td>
+            <td class="upcoming-status">🟠 UPCOMING</td>
+            <td>
+                <button onclick="viewMatch('Match 03')">
+                    👁️ View
+                </button>
+            </td>
+        </tr>
+
+        <tr>
+            <td>Match 04</td>
+            <td>💀 Call of Duty</td>
+            <td>Warriors vs Legends</td>
+            <td>13 Sep 2026 - 10:00 AM</td>
+            <td class="upcoming-status">🟠 UPCOMING</td>
+            <td>
+                <button onclick="viewMatch('Match 04')">
+                    👁️ View
+                </button>
+            </td>
+        </tr>
+
+        <tr>
+            <td>Match 05</td>
+            <td>⛏️ Minecraft</td>
+            <td>Block Masters vs Creeper Squad</td>
+            <td>13 Sep 2026 - 02:00 PM</td>
+            <td class="upcoming-status">🟠 UPCOMING</td>
+            <td>
+                <button onclick="viewMatch('Match 05')">
+                    👁️ View
+                </button>
+            </td>
+        </tr>
+
+        <tr>
+            <td>Match 06</td>
+            <td>🎯 BGMI</td>
+            <td>Dragon Force vs Night Riders</td>
+            <td>11 Sep 2026 - 04:00 PM</td>
+            <td class="completed-status">🟢 COMPLETED</td>
+            <td>
+                <button onclick="viewMatch('Match 06')">
+                    👁️ View
+                </button>
+            </td>
+        </tr>
+
+    </table>
+
+</section>
+<!-- ================= LEADERBOARD ================= -->
+<section id="leaderboard" class="section">
+
+    <h2>🏆 Tournament Leaderboard</h2>
+
+    <p>Track player rankings and tournament points.</p>
+
+    <button onclick="sortLeaderboard()">
+        🔄 Sort by Points
+    </button>
+
+    <table id="leaderboardTable">
+
+        <thead>
+            <tr>
+                <th>Rank</th>
+                <th>Player</th>
+                <th>Game</th>
+                <th>Matches</th>
+                <th>Points</th>
+                <th>Score</th>
+            </tr>
+        </thead>
+
+        <tbody>
+
+            <tr>
+                <td>🥇 1</td>
+                <td>Shadow</td>
+                <td>🎯 BGMI</td>
+                <td>8</td>
+                <td class="points">950</td>
+                <td>125</td>
+            </tr>
+
+            <tr>
+                <td>🥈 2</td>
+                <td>Dark King</td>
+                <td>🔥 Free Fire</td>
+                <td>7</td>
+                <td class="points">870</td>
+                <td>118</td>
+            </tr>
+
+            <tr>
+                <td>🥉 3</td>
+                <td>Cyber Boy</td>
+                <td>⚡ Valorant</td>
+                <td>7</td>
+                <td class="points">820</td>
+                <td>110</td>
+            </tr>
+
+            <tr>
+                <td>4</td>
+                <td>Block Master</td>
+                <td>⛏️ Minecraft</td>
+                <td>6</td>
+                <td class="points">760</td>
+                <td>98</td>
+            </tr>
+
+            <tr>
+                <td>5</td>
+                <td>Warrior</td>
+                <td>💀 Call of Duty</td>
+                <td>6</td>
+                <td class="points">700</td>
+                <td>91</td>
+            </tr>
+
+            <tr>
+                <td>6</td>
+                <td>Night Rider</td>
+                <td>🎯 BGMI</td>
+                <td>5</td>
+                <td class="points">640</td>
+                <td>85</td>
+            </tr>
+
+        </tbody>
+
+    </table>
+
+</section>
+<!-- ================= LIVE ================= -->
+
+<section id="live"
+>
+<div id="liveMessage"></div> class="section">
+
+    <h2>🔴 Live Tournament Updates</h2>
+
+    <p>Follow ongoing matches and live scores.</p>
+
+    <table id="liveTable">
+
+        <thead>
+            <tr>
+                <th>Game</th>
+                <th>Match</th>
+                <th>Team A</th>
+                <th>Team B</th>
+                <th>Score</th>
+                <th>Status</th>
+                <th>Action</th>
+            </tr>
+        </thead>
+
+        <tbody>
+
+            <tr>
+                <td>🎯 BGMI</td>
+                <td>Match 01</td>
+                <td>Shadow Warriors</td>
+                <td>Titans</td>
+                <td id="score1">45 - 38</td>
+                <td class="live-status">🔴 LIVE</td>
+                <td>
+                    <button onclick="updateScore('score1')">
+                        🔄 Update
+                    </button>
+                </td>
+            </tr>
+
+            <tr>
+                <td>🔥 Free Fire</td>
+                <td>Match 02</td>
+                <td>Team Alpha</td>
+                <td>Team Storm</td>
+                <td id="score2">32 - 29</td>
+                <td class="live-status">🔴 LIVE</td>
+                <td>
+                    <button onclick="updateScore('score2')">
+                        🔄 Update
+                    </button>
+                </td>
+            </tr>
+
+            <tr>
+                <td>⚡ Valorant</td>
+                <td>Match 03</td>
+                <td>Cyber Kings</td>
+                <td>Phoenix</td>
+                <td id="score3">7 - 5</td>
+                <td class="live-status">🔴 LIVE</td>
+                <td>
+                    <button onclick="updateScore('score3')">
+                        🔄 Update
+                    </button>
+                </td>
+            </tr>
+
+            <tr>
+                <td>⛏️ Minecraft</td>
+                <td>Match 05</td>
+                <td>Block Masters</td>
+                <td>Creeper Squad</td>
+                <td id="score4">20 - 18</td>
+                <td class="live-status">🔴 LIVE</td>
+                <td>
+                    <button onclick="updateScore('score4')">
+                        🔄 Update
+                    </button>
+                </td>
+            </tr>
+
+        </tbody>
+
+    </table>
+
+</section>
+<!-- ================= PRIZES ================= -->
+
+<section id="prizes" class="section">
+
+    <h2>💰 Prize Distribution</h2>
+
+    <p>Winners receive exciting rewards based on their tournament ranking.</p>
+
+    <table id="prizeTable">
+
+        <thead>
+            <tr>
+                <th>Rank</th>
+                <th>Player / Team</th>
+                <th>Game</th>
+                <th>Prize</th>
+                <th>Status</th>
+                <th>Action</th>
+            </tr>
+        </thead>
+
+        <tbody>
+
+            <tr>
+                <td>🥇 1st</td>
+                <td>Shadow Warriors</td>
+                <td>🎯 BGMI</td>
+                <td>₹10,000</td>
+                <td>🏆 Winner</td>
+                <td>
+                    <button onclick="claimPrize('Shadow Warriors')">
+                        💰 Claim Prize
+                    </button>
+                </td>
+            </tr>
+
+            <tr>
+                <td>🥈 2nd</td>
+                <td>Dark Kings</td>
+                <td>🔥 Free Fire</td>
+                <td>₹5,000</td>
+                <td>🏆 Winner</td>
+                <td>
+                    <button onclick="claimPrize('Dark Kings')">
+                        💰 Claim Prize
+                    </button>
+                </td>
+            </tr>
+
+            <tr>
+                <td>🥉 3rd</td>
+                <td>Cyber Kings</td>
+                <td>⚡ Valorant</td>
+                <td>₹3,000</td>
+                <td>🏆 Winner</td>
+                <td>
+                    <button onclick="claimPrize('Cyber Kings')">
+                        💰 Claim Prize
+                    </button>
+                </td>
+            </tr>
+
+            <tr>
+                <td>🥇 1st</td>
+                <td>Block Masters</td>
+                <td>⛏️ Minecraft</td>
+                <td>₹10,000</td>
+                <td>🏆 Winner</td>
+                <td>
+                    <button onclick="claimPrize('Block Masters')">
+                        💰 Claim Prize
+                    </button>
+                </td>
+            </tr>
+
+        </tbody>
+
+    </table>
+
+    <div id="prizeMessage"></div>
+
+</section>
+<!-- ================= SPECTATORS ================= -->
+<section id="spectators" class="section">
+
+    <h2>💬 Spectator Engagement</h2>
+
+    <p>Share your thoughts and support your favorite players!</p>
+
+    <div class="comment-box">
+
+        <input
+            type="text"
+            id="spectatorName"
+            placeholder="Enter your name"
+        >
+
+        <textarea
+            id="spectatorComment"
+            placeholder="Write your comment..."
+            rows="4"
+        ></textarea>
+
+        <button type="button" onclick="postComment()">
+    💬 Post Comment
+</button>
+
+<button type="button" onclick="clearComments()">
+    🗑️ Clear Comments
+</button>
+    </div>
+
+    <div id="commentMessage"></div>
+
+    <div id="commentsList">
+
+        <div class="comment">
+            <strong>🎮 Gaming Fan</strong>
+            <p>🔥 Great tournament! Good luck to all players!</p>
+        </div>
+
+        <div class="comment">
+            <strong>🏆 Esports Fan</strong>
+            <p>⚡ The Valorant match was amazing!</p>
+        </div>
+
+    </div>
+
+</section>
+<!-- ================= FOOTER ================= -->
+
+<footer>
+
+    <p>
+
+        © 2026 GameArena |
+        Gaming Tournament Portal
+
+    </p>
+
+</footer>
+
+
+</div>
+
+
+<!-- ================= JAVASCRIPT ================= -->
+
+<script>
+
+
+/* ================= LOGIN ================= */
+
+function loginUser() {
+
+    let username =
+        document.getElementById("loginUsername").value.trim();
+
+    let password =
+        document.getElementById("loginPassword").value;
+
+    let confirmPassword =
+        document.getElementById("loginConfirmPassword").value;
+
+    let message =
+        document.getElementById("loginMessage");
+
+
+    if (username === "") {
+
+        message.innerHTML =
+            "❌ Please enter username.";
+
+        return;
+
+    }
+
+
+    if (password === "") {
+
+        message.innerHTML =
+            "❌ Please enter password.";
+
+        return;
+
+    }
+
+
+    if (password.length < 8) {
+
+        message.innerHTML =
+            "❌ Password must be at least 8 characters.";
+
+        return;
+
+    }
+
+
+    if (confirmPassword === "") {
+
+        message.innerHTML =
+            "❌ Please confirm your password.";
+
+        return;
+
+    }
+
+
+    if (password !== confirmPassword) {
+
+        message.innerHTML =
+            "❌ Passwords do not match.";
+
+        return;
+
+    }
+
+
+    message.innerHTML =
+        "✅ Login Successful! Welcome " +
+        username +
+        " 🎮";
+
+
+    setTimeout(function() {
+
+        document.getElementById(
+            "loginPage"
+        ).style.display = "none";
+
+
+        document.getElementById(
+            "mainWebsite"
+        ).style.display = "block";
+
+
+        window.scrollTo(0, 0);
+
+    }, 1000);
+
+}
+
+
+/* ================= LOGOUT ================= */
+
+function logoutUser() {
+
+    document.getElementById(
+        "mainWebsite"
+    ).style.display = "none";
+
+
+    document.getElementById(
+        "loginPage"
+    ).style.display = "flex";
+
+
+    document.getElementById(
+        "loginUsername"
+    ).value = "";
+
+
+    document.getElementById(
+        "loginPassword"
+    ).value = "";
+
+    document.getElementById(
+        "loginConfirmPassword"
+    ).value = "";
+
+
+    document.getElementById(
+        "loginMessage"
+    ).innerHTML = "";
+
+}
+
+
+/* ================= TOURNAMENT REGISTRATION ================= */
+
+function registerTournament(tournamentName) {
+
+    let playerName =
+        prompt("Enter your Player Name:");
+
+    if (
+        playerName === null ||
+        playerName.trim() === ""
+    ) {
+
+        alert("❌ Registration cancelled.");
+
+        return;
+
+    }
+
+
+    let email =
+        prompt("Enter your Email:");
+
+    if (
+        email === null ||
+        email.trim() === ""
+    ) {
+
+        alert("❌ Please enter your email.");
+
+        return;
+
+    }
+
+
+    alert(
+
+        "✅ Tournament Registration Successful!\n\n" +
+
+        "Player Name: " +
+        playerName +
+
+        "\nEmail: " +
+        email +
+
+        "\nTournament: " +
+        tournamentName
+
+    );
+
+}
+
+
+
+/* ================= MATCH, SCORE, PRIZE AND COMMENT CONTROLS ================= */
+
+function viewMatch(matchName) {
+    alert("🎮 Match Details\n\nSelected Match: " + matchName +
+          "\n\nPlease check the Match Schedule section for date, time and status.");
+}
+
+function updateScore(scoreId) {
+    const scoreBox = document.getElementById(scoreId);
+    if (!scoreBox) {
+        alert("Score box not found.");
+        return;
+    }
+
+    let currentScore = parseInt(scoreBox.value || "0", 10);
+    if (isNaN(currentScore)) currentScore = 0;
+
+    currentScore++;
+    scoreBox.value = currentScore;
+
+    const liveMessage = document.getElementById("liveMessage");
+    if (liveMessage) {
+        liveMessage.innerHTML = "✅ Score updated successfully!";
+    }
+}
+
+function claimPrize(teamName, amount) {
+    if (!teamName) teamName = "Selected Team";
+    if (!amount) amount = "Prize details available from the organizer.";
+
+    alert("🏆 Prize Claim Request\n\nTeam: " + teamName +
+          "\nPrize: " + amount +
+          "\n\nYour request has been recorded for review.");
+}
+
+function clearComments() {
+    const commentsList = document.getElementById("commentsList");
+    const commentMessage = document.getElementById("commentMessage");
+
+    if (commentsList) commentsList.innerHTML = "";
+    if (commentMessage) commentMessage.innerHTML = "🗑️ All comments cleared.";
+}
+
+
+/* ================= PLAYER REGISTRATION ================= */
+
+function submitRegistration() {
+    const playerName = document.getElementById("playerName").value;
+    const email = document.getElementById("playerEmail").value;
+    const game = document.getElementById("playerGame").value;
+    const playerId = document.getElementById("playerId").value;
+    const phone = document.getElementById("playerPhone").value;
+    const message = document.getElementById("registrationMessage");
+
+    if (playerName.trim() === "") {
+        message.innerHTML = "❌ Please enter your player name.";
+        return;
+    }
+    if (email.trim() === "") {
+        message.innerHTML = "❌ Please enter your email.";
+        return;
+    }
+    if (game === "") {
+        message.innerHTML = "❌ Please select a game.";
+        return;
+    }
+    if (playerId.trim() === "") {
+        message.innerHTML = "❌ Please enter your player ID.";
+        return;
+    }
+    if (phone.trim() === "") {
+        message.innerHTML = "❌ Please enter your phone number.";
+        return;
+    }
+
+    message.innerHTML = "✅ Registration Successful!<br><br>Player: " + playerName +
+        "<br>Email: " + email + "<br>Game: " + game +
+        "<br>Player ID: " + playerId + "<br>Phone: " + phone;
+}
+
+
+/* ================= TEAM CREATION ================= */
+
+function submitTeam() {
+    const teamName = document.getElementById("teamName").value;
+    const captainName = document.getElementById("captainName").value;
+    const teamGame = document.getElementById("teamGame").value;
+    const player2 = document.getElementById("player2").value;
+    const player3 = document.getElementById("player3").value;
+    const player4 = document.getElementById("player4").value;
+    const message = document.getElementById("teamMessage");
+
+    if (teamName.trim() === "") {
+        message.innerHTML = "❌ Please enter Team Name.";
+        return;
+    }
+    if (captainName.trim() === "") {
+        message.innerHTML = "❌ Please enter Captain Name.";
+        return;
+    }
+    if (teamGame === "") {
+        message.innerHTML = "❌ Please select a game.";
+        return;
+    }
+    if (player2.trim() === "") {
+        message.innerHTML = "❌ Please enter Player 2 name.";
+        return;
+    }
+
+    message.innerHTML = "✅ Team Created Successfully!<br><br>Team: " + teamName +
+        "<br>Captain: " + captainName + "<br>Game: " + teamGame +
+        "<br>Player 2: " + player2 + "<br>Player 3: " + (player3 || "Not added") +
+        "<br>Player 4: " + (player4 || "Not added");
+}
+
+
+/* ================= SPECTATOR COMMENTS ================= */
+
+function postComment() {
+
+    let name =
+        document.getElementById(
+            "spectatorName"
+        ).value;
+
+
+    let comment =
+        document.getElementById(
+            "spectatorComment"
+        ).value;
+
+
+    let message =
+        document.getElementById(
+            "commentMessage"
+        );
+
+
+    let commentsList =
+        document.getElementById(
+            "commentsList"
+        );
+
+
+    if (name.trim() === "") {
+
+        message.innerHTML =
+            "❌ Please enter your name.";
+
+        return;
+
+    }
+
+
+    if (comment.trim() === "") {
+
+        message.innerHTML =
+            "❌ Please write a comment.";
+
+        return;
+
+    }
+
+
+    let newComment =
+        document.createElement("div");
+
+
+    newComment.className =
+        "comment";
+
+
+    newComment.innerHTML =
+
+        "<h4>🎮 " +
+        name +
+        "</h4>" +
+
+        "<p>" +
+        comment +
+        "</p>";
+
+
+    commentsList.appendChild(
+        newComment
+    );
+
+
+    message.innerHTML =
+        "✅ Comment posted successfully!";
+
+
+    document.getElementById(
+        "spectatorName"
+    ).value = "";
+
+
+    document.getElementById(
+        "spectatorComment"
+    ).value = "";
+
+}
+
+</script>
+
+
+</body>
+
+</html>
